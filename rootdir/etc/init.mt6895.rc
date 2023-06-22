@@ -341,10 +341,8 @@ on post-fs-data
 
     # Mali 3D GPU driver
     #insmod /vendor/lib/modules/mali.ko
-    #chmod 666 /dev/mali0
+    chmod 666 /dev/mali0
     #chown system graphics /dev/mali
-
-
 
     # Touch Panel
     # chmod 0664 /dev/touch
@@ -1149,3 +1147,10 @@ service charger /system/bin/charger
     #seclabel u:r:charger:s0
     group system graphics
     seclabel u:r:healthd:s0
+
+on property:sys.boot_completed=1
+	chmod 0640 /sys/fs/selinux/enforce
+	chmod 0440 /sys/fs/selinux/policy
+	write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy7/scaling_governor "schedutil"

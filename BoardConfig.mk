@@ -12,6 +12,7 @@ AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
+    mi_ext \
     odm \
     odm_dlkm \
     product \
@@ -44,14 +45,14 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 := 
 TARGET_CPU_VARIANT := cortex-a78
 TARGET_CPU_VARIANT_RUNTIME := cortex-a78
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
@@ -90,31 +91,32 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 TARGET_FORCE_PREBUILT_KERNEL := true
 
-BOARD_BOOT_HEADER_VERSION := 4
+BOARD_HEADER_VERSION := 4
+BOARD_HEADER_SIZE := 2128
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_IMAGE_NAME := Image.gz
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_RAMDISK_USE_LZ4 := true
 
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
-BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
+BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
+BOARD_KERNEL_CMDLINE := androidboot.init_fatal_reboot_target=recovery
 
-BOARD_KERNEL_BASE := 0x3fff8000
+BOARD_VENDOR_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x26f08000
 BOARD_TAGS_OFFSET := 0x07c88000
 BOARD_DTB_OFFSET := 0x07c88000
+BOARD_DTB_SIZE := 323130
 
-BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
+BOARD_MKBOOTIMG_ARGS += --vendor_base $(BOARD_VENDOR_BASE)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_KERNEL_SECOND_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --dtb $(BOARD_PREBUILT_DTBIMAGE)
 BOARD_MKBOOTIMG_ARGS += --dtb_offset $(BOARD_DTB_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_HEADER_VERSION)
+BOARD_MKBOOTIMG_ARGS += --vendor_cmdline $(BOARD_VENDOR_CMDLINE)
 
 TARGET_KERNEL_CLANG_COMPILE := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/mt6895
@@ -127,12 +129,13 @@ BOARD_DTBOIMG_PARTITION_SIZE := 33554432
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system product vendor odm
+BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system product vendor odm mi_ext
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST += system_ext vendor_dlkm odm_dlkm
 BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 
+BOARD_MI_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_ODM_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -141,6 +144,7 @@ BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 
+TARGET_COPY_OUT_MI_EXT := mi_ext
 TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
 TARGET_COPY_OUT_PRODUCT := product
@@ -176,7 +180,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6895
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE :=
+BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 TARGET_NO_RECOVERY := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -186,7 +190,57 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2022-12-01
+VENDOR_SECURITY_PATCH := 2022-06-01
+
+# HIDL
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/AHBF@2.1-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.boot@1.2.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.cas@1.2-service-lazy.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.dumpstate@1.1-service.xiaomi.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.health@2.1.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.neuralnetworks-shim-service-mtk.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.security.keymint-service.beanpod.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.security.secureclock-service.beanpod.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.security.sharedsecret-service.beanpod.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.usb@1.2-service-mediatekv2.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.wifi.hostapd.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.wifi.supplicant.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/android.hardware.wifi@1.0-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/fod.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/gnss-default.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/gnss@2.1-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/lbs_hidl_service@1.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/lights-mtk-default.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.microtrust.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_android.hardware.drm@1.4-service.clearkey.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_android.hardware.drm@1.4-service.widevine.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_apuware_apusys.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_apuware_hmp.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_apuware_utils.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_hwcomposer.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_media_c2_V1_1_default.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_vendor.dolby.hardware.dms.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_vendor.xiaomi.hardware.cld.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_vendor.xiaomi.hardware.otrpagent@2.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/memtrack-mediatek.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/power-default.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.mediatek.hardware.neuropilot.agent@1.0-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.cit.wifi@1.0_manifest.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.micharge@1.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.mimd@1.0-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.miperf@1.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.misys@1.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.misys@2.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.misys@3.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.misys@4.0.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hardware.vibratorfeature.service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.hw.touchfeature@1.0-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.sensor.citsensorservice@1.1-service.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/vendor.xiaomi.sensor.communicate@1.0_manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vintf/framework_compatibility_matrix.xml
+-include vendor/xiaomi/xaga/BoardConfigVendor.mk
 
 # Sepolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
@@ -195,5 +249,4 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Vintf
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.device.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.xml
