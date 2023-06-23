@@ -540,7 +540,7 @@ PRODUCT_PACKAGES += \
     ueventd.rc
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/etc/init.mt6895.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6895.rc
+	$(LOCAL_PATH)/rootdir/etc/init.mt6895.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.6895.rc
 
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
