@@ -2,13 +2,6 @@
 vendor/lib/rfsa/adsp/libSuperSensor_skel.so
 
 # Audio
-vendor/etc/audio_param/tfa98xx_music.bin
-vendor/etc/audio_param/tfa98xx_ringtone.bin
-vendor/etc/audio_param/tfa98xx_voice.bin
-vendor/etc/smartpa_param/tfa98xx_device.bin
-vendor/etc/smartpa_param/tfa98xx_ringtone.bin
-vendor/etc/smartpa_param/tfa98xx_voice.bin
-vendor/firmware/tfa98xx.cnt
 vendor/lib/libaudioclient_aidl_conversion.so
 vendor/lib/libaudiocompensationfilterc.so
 vendor/lib/libaudiocompensationfilter_vendor.so
@@ -53,7 +46,6 @@ system_ext/lib64/vendor.mediatek.hardware.audio@8.1.so
 vendor/bin/hw/android.hardware.audio.service.mediatek
 vendor/etc/init/android.hardware.audio.service.mediatek.rc
 vendor/lib/android.hardware.audio.common-util.so
-vendor/lib/android.hardware.audio.common@5.0.so
 vendor/lib/android.hardware.audio.common@6.0-util.so
 vendor/lib/android.hardware.audio.common@6.0.so
 vendor/lib/android.hardware.audio.common@7.0-enums.so
@@ -575,7 +567,6 @@ vendor/etc/init/android.hardware.graphics.composer@2.2-service.rc
 vendor/etc/init/android.hardware.graphics.composer@2.3-service.rc
 vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc
 vendor/etc/init/vendor.xiaomi.hardware.displayfeature@1.0-service.rc
-vendor/lib/hw/gralloc.default.so
 vendor/lib/hw/mt6895/android.hardware.graphics.allocator@4.0-impl-mediatek.so
 vendor/lib/hw/mt6895/android.hardware.graphics.mapper@4.0-impl-mediatek.so
 vendor/lib/hw/vendor.xiaomi.hardware.displayfeature@1.0-impl.so
@@ -628,14 +619,6 @@ vendor/lib64/libdolbyvision.so
 vendor/lib64/libstagefrightdolby.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
 vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-
-# Fido
-vendor/bin/fidoca_isee
-vendor/etc/init/vendor.xiaomi.hardware.mfidoca@1.0-iseeservice.rc
-vendor/lib/libmfido_isee.so
-vendor/lib/vendor.xiaomi.hardware.mfidoca@1.0.so
-vendor/lib64/libmfido_isee.so
-vendor/lib64/vendor.xiaomi.hardware.mfidoca@1.0.so
 
 # Fingerprint
 vendor/etc/permissions/com.fingerprints.extension.xml
@@ -955,6 +938,22 @@ vendor/firmware/WIFI_RAM_CODE_soc7_0_1c_1.bin
 
 # GPS
 vendor/bin/hw/android.hardware.gnss-service.mediatek
+vendor/etc/gnss/agps_profiles_conf2.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_Mexico.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_US.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Peru.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CMCC.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CT.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CU.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Entel_Peru.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_KDDI.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SK_Telecom.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SoftBank.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Sprint.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_T-Mobile_US.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM1.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM2.xml
+vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Verizon_Wireless.xml
 vendor/etc/init/android.hardware.gnss-service.mediatek.rc
 vendor/lib/hw/gps.default.so
 vendor/lib64/android.hardware.gnss.measurement_corrections@1.0.so
@@ -968,16 +967,8 @@ vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/android.hardware.gnss@2.1-impl-mediatek.so
 vendor/lib64/hw/gps.default.so
 
-# GPS-Hardware
-
 # Gatekeeper
-vendor/bin/hw/android.hardware.gatekeeper@1.0-service
-vendor/etc/init/android.hardware.gatekeeper@1.0-service.rc
-vendor/lib/android.hardware.gatekeeper@1.0.so
-vendor/lib/hw/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib/hw/gatekeeper.beanpod.so
-vendor/lib64/android.hardware.gatekeeper@1.0.so
-vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so
 vendor/lib64/hw/gatekeeper.beanpod.so
 
 # Graphics
@@ -1010,27 +1001,16 @@ vendor/lib64/android.hardware.health@2.0.so
 vendor/lib64/android.hardware.health@2.1.so
 vendor/lib64/hw/android.hardware.health@2.0-impl-2.1.so
 
-# IFAA
--vendor/app/IFAAService/IFAAService.apk
-
 # Keymaster
 vendor/bin/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-service
 vendor/etc/init/vendor.mediatek.hardware.keymaster_attestation@1.1-service.rc
-vendor/etc/permissions/android.hardware.hardware_keystore.xml
-vendor/etc/permissions/android.hardware.keystore.app_attest_key.xml
 vendor/lib/android.system.wifi.keystore@1.0.so
 vendor/lib/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-vendor/lib/libkeystore-wifi-hidl.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 vendor/lib64/android.system.wifi.keystore@1.0.so
 vendor/lib64/hw/vendor.mediatek.hardware.keymaster_attestation@1.1-impl.so
-vendor/lib64/libkeymaster_messages.so
-vendor/lib64/libkeymaster_portable.so
 vendor/lib64/libkeystore-engine-wifi-hidl.so
-vendor/lib64/libkeystore-wifi-hidl.so
-vendor/lib64/libpuresoftkeymasterdevice.so
-vendor/lib64/lib_android_keymaster_keymint_utils.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.0.so
 vendor/lib64/vendor.mediatek.hardware.keymaster_attestation@1.1.so
 
@@ -1357,6 +1337,19 @@ vendor/lib64/vendor.mediatek.hardware.pq@2.9.so
 vendor/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 vendor/lib64/vendor.mediatek.hardware.wifi.hostapd_ext@1.0.so
 
+# MIUI Camera
+lib64/libcamera_algoup_jni.xiaomi.so
+lib64/libcamera_ispinterface_jni.xiaomi.so
+lib64/libcamera_mianode_jni.xiaomi.so
+lib64/libcameraservice.so
+lib64/libcamera_client.so
+lib64/libmtkisp_metadata_sys.so
+lib64/vendor.mediatek.hardware.camera.isphal@1.0.so
+-product/priv-app/MiuiCamera/MiuiCamera.apk:system/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Snap,GoogleCameraGo,Camera2
+system_ext/lib64/libcameraimpl.so
+system_ext/lib64/libopencl-camera.so
+system_ext/lib64/vendor.mediatek.hardware.camera.atms@1.0.so
+
 # NFC
 vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
 vendor/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc
@@ -1403,8 +1396,7 @@ vendor/lib64/mt6895/libneuron_runtime.5.so
 vendor/lib64/mt6895/libneuron_wrapper.so
 
 # Perf
-
-# Postprocessing
+vendor/bin/iperf.so
 
 # Power-Hardware
 system_ext/lib64/vendor.mediatek.hardware.power@2.0.so
@@ -1415,8 +1407,6 @@ vendor/lib64/android.hardware.power@1.0.so
 vendor/lib64/android.hardware.power@1.1.so
 vendor/lib64/android.hardware.power@1.2.so
 vendor/lib64/hw/power.default.so
-
-# QMI
 
 # Radio
 system_ext/lib/android.hardware.radio.config@1.1.so
@@ -1564,20 +1554,10 @@ vendor/etc/thermal/thermal_policy_02.conf
 vendor/etc/thermal/thermal_policy_03.conf
 vendor/etc/thermal/thermal_policy_08.conf
 vendor/etc/thermald-devices.conf
-vendor/lib/android.hardware.thermal@1.0.so
-vendor/lib/android.hardware.thermal@2.0.so
-vendor/lib/hw/android.hardware.thermal@1.0-impl.so
-vendor/lib/hw/android.hardware.thermal@2.0-impl.so
-vendor/lib64/android.hardware.thermal@1.0.so
-vendor/lib64/android.hardware.thermal@2.0.so
-vendor/lib64/hw/android.hardware.thermal@1.0-impl.so
-vendor/lib64/hw/android.hardware.thermal@2.0-impl.so
 
 # Thermal-Hardware
 vendor/lib/hw/thermal_hal.so
 vendor/lib64/hw/thermal_hal.so
-
-# Time
 
 # Vibrator
 vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
@@ -1593,7 +1573,7 @@ vendor/lib64/libvibrator.so
 vendor/lib64/vendor.hardware.vibratorfeature.IVibratorExt-V1-ndk_platform.so
 
 # WiFi
-bin/iwpriv
+vendor/bin/iwpriv
 vendor/bin/hw/android.hardware.wifi@1.0-service-lazy
 vendor/bin/iwpriv
 vendor/etc/init/android.hardware.wifi.supplicant-service.rc
@@ -1805,9 +1785,6 @@ vendor/etc/init/vendor.microtrust.hardware.thh@2.0-service.rc
 vendor/etc/partition_permission.sh
 
 # Misc
-system_ext/apex/com.android.vndk.v30.apex
-system_ext/apex/com.android.vndk.v31.apex
--system_ext/app/TeeService/TeeService.apk
 system_ext/bin/aee
 system_ext/bin/aeedb
 system_ext/bin/aeedb_v2
@@ -1827,12 +1804,6 @@ system_ext/bin/qadaemon
 system_ext/bin/rtt
 system_ext/bin/rtt_v2
 system_ext/bin/trace
-system_ext/cust/cn/cust.prop
-system_ext/cust/cn_chinamobile-cta/cust.prop
-system_ext/cust/cn_chinamobile/cust.prop
-system_ext/cust/cn_chinatelecom/cust.prop
-system_ext/cust/cn_chinaunicom/cust.prop
-system_ext/cust/cn_cta/cust.prop
 system_ext/etc/a2dp_audio_policy_configuration.xml
 system_ext/etc/a2dp_in_audio_policy_configuration.xml
 system_ext/etc/aee-commit
@@ -2039,8 +2010,6 @@ system_ext/lib/libmimediacodec.so
 system_ext/lib/libmiperf_jni.qti.so
 system_ext/lib/libmisensorserviceimpl.so
 system_ext/lib/libmisurfaceflinger.so
-system_ext/lib/libmiuidiffpatcher.so
-system_ext/lib/libmiuinative.so
 system_ext/lib/libmvpuop_mtk_cv.mtk.so
 system_ext/lib/libmvpuop_mtk_nn.mtk.so
 system_ext/lib/libmvpu_cic_ci_compiler.mtk.so
@@ -2062,8 +2031,6 @@ system_ext/lib/libopencl-camera.so
 system_ext/lib/libpngt.so
 system_ext/lib/libsecurity_device_credential_sdk.so
 system_ext/lib/libsurfaceflingerinsptr.so
-system_ext/lib/libTeeServiceJni.so
-system_ext/lib/libteeservice_client.trustonic.so
 system_ext/lib/libtess.so
 system_ext/lib/libtflite_mtk.mtk.so
 system_ext/lib/vendor.mediatek.hardware.aee@1.0.so
@@ -2126,8 +2093,6 @@ system_ext/lib64/libmimediacodec.so
 system_ext/lib64/libmiperf_jni.qti.so
 system_ext/lib64/libmisensorserviceimpl.so
 system_ext/lib64/libmisurfaceflinger.so
-system_ext/lib64/libmiuidiffpatcher.so
-system_ext/lib64/libmiuinative.so
 system_ext/lib64/libmvpuop_mtk_cv.mtk.so
 system_ext/lib64/libmvpuop_mtk_nn.mtk.so
 system_ext/lib64/libmvpu_cic_ci_compiler.mtk.so
@@ -2150,8 +2115,6 @@ system_ext/lib64/libpcap_bak.so
 system_ext/lib64/libpngt.so
 system_ext/lib64/libsecurity_device_credential_sdk.so
 system_ext/lib64/libsurfaceflingerinsptr.so
-system_ext/lib64/libTeeServiceJni.so
-system_ext/lib64/libteeservice_client.trustonic.so
 system_ext/lib64/libtess.so
 system_ext/lib64/libtflite_mtk.mtk.so
 system_ext/lib64/vendor.mediatek.hardware.aee@1.0.so
@@ -2303,6 +2266,7 @@ vendor/bin/gbe
 vendor/bin/getgameserver
 vendor/bin/gsm0710muxd
 vendor/bin/hw/android.hardware.security.keymint@1.0-service.beanpod
+vendor/bin/hw/android.hardware.cas@1.2-service-lazy
 vendor/bin/hw/mfp-daemon
 vendor/bin/hw/miperf_client
 vendor/bin/hw/mtkfusionrild
@@ -2356,7 +2320,6 @@ vendor/bin/smartcharging
 vendor/bin/smartpa_nvtest
 vendor/bin/SMBlemishAnalyzer_new
 vendor/bin/stp_dump3
-vendor/bin/teei_daemon
 vendor/bin/test-nusensors
 vendor/bin/testgameserver
 vendor/bin/toucheventcheck
@@ -2367,8 +2330,6 @@ vendor/bin/vpud
 vendor/bin/vsimd_isee
 vendor/bin/wmt_launcher
 vendor/bin/wmt_loader
-vendor/data/model/AIHDR.dla
-vendor/data/model/scene_detection.dla
 vendor/etc/1-SN1X0_SPC.txt
 vendor/etc/1khz.wav
 vendor/etc/1k_0.01.wav
@@ -2406,22 +2367,6 @@ vendor/etc/excluded-input-devices.xml
 vendor/etc/factory.ini
 vendor/etc/fstb.cfg
 vendor/etc/gbe.cfg
-vendor/etc/gnss/agps_profiles_conf2.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_Mexico.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_ATnT_US.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Claro_Peru.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CMCC.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CT.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_CU.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Entel_Peru.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_KDDI.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SK_Telecom.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_SoftBank.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Sprint.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_T-Mobile_US.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM1.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Test_SIM2.xml
-vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Verizon_Wireless.xml
 vendor/etc/init.insmod.mt6895.cfg
 vendor/etc/init.panel_info.sh
 vendor/etc/init/aee_aedv64_v2.rc
@@ -2780,9 +2725,6 @@ vendor/etc/virtual-spn-conf-by-imsi.xml
 vendor/etc/wfd_source_capability.csv
 vendor/etc/xgf.cfg
 vendor/lib/android.frameworks.sensorservice@1.0.so
-vendor/lib/android.hardware.boot@1.0.so
-vendor/lib/android.hardware.boot@1.1.so
-vendor/lib/android.hardware.boot@1.2.so
 vendor/lib/android.hardware.cas.native@1.0.so
 vendor/lib/android.hardware.cas@1.0.so
 vendor/lib/android.hardware.cas@1.1.so
@@ -2890,8 +2832,6 @@ vendor/lib/libHEVCdec_sa.ca7.android.so
 vendor/lib/libhevce_sb.ca7.android.so
 vendor/lib/libhfmanager.so
 vendor/lib/libhfmanagerwrapper.so
-vendor/lib/libhidltransport.so
-vendor/lib/libhwbinder.so
 vendor/lib/libicd_decoder.so
 vendor/lib/libimsg_log.so
 vendor/lib/libion_mtk.so
@@ -2967,7 +2907,6 @@ vendor/lib/libspeechparser_vendor.so
 vendor/lib/libspeech_enh_lib.so
 vendor/lib/libSQLiteModule_VER_ALL.so
 vendor/lib/libstagefright_amrnb_common.so
-vendor/lib/libstagefright_bufferpool@2.0.1.so
 vendor/lib/libstagefright_enc_common.so
 vendor/lib/libstagefright_flacdec.so
 vendor/lib/libstagefright_softomx.so
@@ -2994,10 +2933,6 @@ vendor/lib/libstagefright_soft_vpxdec.so
 vendor/lib/libstagefright_soft_vpxenc.so
 vendor/lib/libstorage_otp.so
 vendor/lib/libsysenv.so
-vendor/lib/libteeclientjni_isee.so
-vendor/lib/libteeclientjni_isee@1.1.so
-vendor/lib/libTEECommon.so
-vendor/lib/libteei_daemon_vfs.so
 vendor/lib/libtextclassifier_hash.so
 vendor/lib/libtflite_mtk.so
 vendor/lib/libthha.so
@@ -3115,12 +3050,8 @@ vendor/lib/soundfx/libswgamedap.so
 vendor/lib/soundfx/libswvqe.so
 vendor/lib/vendor.qti.sla.service@1.0-impl.so
 vendor/lib/vendor.qti.sla.service@1.0.so
-vendor/lib/wechat.beanpod.so
 vendor/lib64/android.frameworks.displayservice@1.0.so
 vendor/lib64/android.frameworks.sensorservice@1.0.so
-vendor/lib64/android.hardware.boot@1.0.so
-vendor/lib64/android.hardware.boot@1.1.so
-vendor/lib64/android.hardware.boot@1.2.so
 vendor/lib64/android.hardware.dumpstate@1.0.so
 vendor/lib64/android.hardware.dumpstate@1.1.so
 vendor/lib64/android.hardware.ir@1.0.so
@@ -3262,9 +3193,7 @@ vendor/lib64/libheichal.so
 vendor/lib64/libhevce_sb.ca7.android.so
 vendor/lib64/libhfmanager.so
 vendor/lib64/libhfmanagerwrapper.so
-vendor/lib64/libhidltransport.so
 vendor/lib64/libhmp_custom.so
-vendor/lib64/libhwbinder.so
 vendor/lib64/libhwm.so
 vendor/lib64/libicd_decoder.so
 vendor/lib64/libifcutils_mtk.so
@@ -3356,16 +3285,11 @@ vendor/lib64/libsoft_attestation_cert.so
 vendor/lib64/libspeechparser_vendor.so
 vendor/lib64/libspeech_enh_lib.so
 vendor/lib64/libSQLiteModule_VER_ALL.so
-vendor/lib64/libstagefright_bufferpool@2.0.1.so
 vendor/lib64/libstagefright_softomx.so
 vendor/lib64/libstagefright_soft_ac4dec.so
 vendor/lib64/libstagefright_soft_ddpdec.so
 vendor/lib64/libstorage_otp.so
 vendor/lib64/libsysenv.so
-vendor/lib64/libteeclientjni_isee.so
-vendor/lib64/libteeclientjni_isee@1.1.so
-vendor/lib64/libTEECommon.so
-vendor/lib64/libteei_daemon_vfs.so
 vendor/lib64/libtextclassifier_hash.so
 vendor/lib64/libtflite_mtk.so
 vendor/lib64/libthha.so
@@ -3589,232 +3513,3 @@ vendor/xagain_build.prop
 vendor/xagaproin_build.prop
 vendor/xagapro_build.prop
 vendor/xaga_build.prop
-
-# Vendor Modules
-vendor_dlkm/lib/modules/adsp-v2.ko
-vendor_dlkm/lib/modules/ak7375c.ko
-vendor_dlkm/lib/modules/ak7377a.ko
-vendor_dlkm/lib/modules/apu_top.ko
-vendor_dlkm/lib/modules/apusys.ko
-vendor_dlkm/lib/modules/arm_dsu_pmu.ko
-vendor_dlkm/lib/modules/asix.ko
-vendor_dlkm/lib/modules/atf_logger.ko
-vendor_dlkm/lib/modules/audio_ipi.ko
-vendor_dlkm/lib/modules/ax88179_178a.ko
-vendor_dlkm/lib/modules/backlight_cooling.ko
-vendor_dlkm/lib/modules/binder_gki.ko
-vendor_dlkm/lib/modules/board_temp.ko
-vendor_dlkm/lib/modules/bt_drv_6895.ko
-vendor_dlkm/lib/modules/btif_drv.ko
-vendor_dlkm/lib/modules/bu64253gwz.ko
-vendor_dlkm/lib/modules/c2k_usb.ko
-vendor_dlkm/lib/modules/c2k_usb_f_via_atc.ko
-vendor_dlkm/lib/modules/c2k_usb_f_via_ets.ko
-vendor_dlkm/lib/modules/c2k_usb_f_via_gps.ko
-vendor_dlkm/lib/modules/c2k_usb_f_via_modem.ko
-vendor_dlkm/lib/modules/c2k_usb_f_via_pcv.ko
-vendor_dlkm/lib/modules/camera_af_media.ko
-vendor_dlkm/lib/modules/camera_dpe_isp70.ko
-vendor_dlkm/lib/modules/camera_eeprom.ko
-vendor_dlkm/lib/modules/ccci_auxadc.ko
-vendor_dlkm/lib/modules/ccci_ccif.ko
-vendor_dlkm/lib/modules/ccci_dpmaif.ko
-vendor_dlkm/lib/modules/ccci_fsm_scp.ko
-vendor_dlkm/lib/modules/ccci_md_all.ko
-vendor_dlkm/lib/modules/ccci_md_clk.ko
-vendor_dlkm/lib/modules/ccci_rtc.ko
-vendor_dlkm/lib/modules/ccci_util_lib.ko
-vendor_dlkm/lib/modules/ccd_rpmsg.ko
-vendor_dlkm/lib/modules/ccmni.ko
-vendor_dlkm/lib/modules/charger_cooling.ko
-vendor_dlkm/lib/modules/clk-dbg-mt6895.ko
-vendor_dlkm/lib/modules/clk-disable-unused.ko
-vendor_dlkm/lib/modules/cmdq-sec-drv.ko
-vendor_dlkm/lib/modules/cmdq-test.ko
-vendor_dlkm/lib/modules/connadp.ko
-vendor_dlkm/lib/modules/connfem.ko
-vendor_dlkm/lib/modules/conninfra.ko
-vendor_dlkm/lib/modules/connscp.ko
-vendor_dlkm/lib/modules/cpudvfs.ko
-vendor_dlkm/lib/modules/cpufreq_sugov_ext.ko
-vendor_dlkm/lib/modules/cpuqos_v3.ko
-vendor_dlkm/lib/modules/double_click.ko
-vendor_dlkm/lib/modules/dw9800v.ko
-vendor_dlkm/lib/modules/dw9800w.ko
-vendor_dlkm/lib/modules/elliptic.ko
-vendor_dlkm/lib/modules/emi-mpu-hook-v1.ko
-vendor_dlkm/lib/modules/fhctl.ko
-vendor_dlkm/lib/modules/flashlight.ko
-vendor_dlkm/lib/modules/fmradio_drv_connac2x.ko
-vendor_dlkm/lib/modules/fpc1022_tee.ko
-vendor_dlkm/lib/modules/fpsgo.ko
-vendor_dlkm/lib/modules/frs.ko
-vendor_dlkm/lib/modules/ged.ko
-vendor_dlkm/lib/modules/gf_spi_tee.ko
-vendor_dlkm/lib/modules/gps_drv_dl_v050.ko
-vendor_dlkm/lib/modules/gps_pwr.ko
-vendor_dlkm/lib/modules/gps_scp.ko
-vendor_dlkm/lib/modules/gpueb.ko
-vendor_dlkm/lib/modules/gt9764.ko
-vendor_dlkm/lib/modules/gt9772a.ko
-vendor_dlkm/lib/modules/gt9772b.ko
-vendor_dlkm/lib/modules/gt9886.ko
-vendor_dlkm/lib/modules/gt9896s.ko
-vendor_dlkm/lib/modules/gz_ipc_mod.ko
-vendor_dlkm/lib/modules/gz_irq_mod.ko
-vendor_dlkm/lib/modules/gz_log_mod.ko
-vendor_dlkm/lib/modules/gz_main_mod.ko
-vendor_dlkm/lib/modules/gz_trusty_mod.ko
-vendor_dlkm/lib/modules/gz_tz_system.ko
-vendor_dlkm/lib/modules/gz_virtio_mod.ko
-vendor_dlkm/lib/modules/haptic.ko
-vendor_dlkm/lib/modules/hf_manager.ko
-vendor_dlkm/lib/modules/imgsensor-glue.ko
-vendor_dlkm/lib/modules/imgsensor.ko
-vendor_dlkm/lib/modules/jpeg-driver.ko
-vendor_dlkm/lib/modules/ktd2687.ko
-vendor_dlkm/lib/modules/lc898229.ko
-vendor_dlkm/lib/modules/lm3644.ko
-vendor_dlkm/lib/modules/load_track.ko
-vendor_dlkm/lib/modules/mali_kbase_mt6895.ko
-vendor_dlkm/lib/modules/mali_mgm.ko
-vendor_dlkm/lib/modules/mali_prot_alloc.ko
-vendor_dlkm/lib/modules/mcupm.ko
-vendor_dlkm/lib/modules/md_cooling_all.ko
-vendor_dlkm/lib/modules/mddp.ko
-vendor_dlkm/lib/modules/met.ko
-vendor_dlkm/lib/modules/met_backlight_api.ko
-vendor_dlkm/lib/modules/met_emi_api.ko
-vendor_dlkm/lib/modules/met_gpu_adv_api.ko
-vendor_dlkm/lib/modules/met_gpu_api.ko
-vendor_dlkm/lib/modules/met_ipi_api.ko
-vendor_dlkm/lib/modules/met_mcupm_api.ko
-vendor_dlkm/lib/modules/met_scmi_api.ko
-vendor_dlkm/lib/modules/met_sspm_api.ko
-vendor_dlkm/lib/modules/met_vcore_api.ko
-vendor_dlkm/lib/modules/mi_thermal_interface.ko
-vendor_dlkm/lib/modules/millet_binder.ko
-vendor_dlkm/lib/modules/millet_core.ko
-vendor_dlkm/lib/modules/millet_hs.ko
-vendor_dlkm/lib/modules/millet_oem_cgroup.ko
-vendor_dlkm/lib/modules/millet_pkg.ko
-vendor_dlkm/lib/modules/millet_sig.ko
-vendor_dlkm/lib/modules/minet.ko
-vendor_dlkm/lib/modules/miwill.ko
-vendor_dlkm/lib/modules/miwill_mode_redudancy.ko
-vendor_dlkm/lib/modules/modules.alias
-vendor_dlkm/lib/modules/modules.dep
-vendor_dlkm/lib/modules/modules.load
-vendor_dlkm/lib/modules/modules.softdep
-vendor_dlkm/lib/modules/msync2_frd.ko
-vendor_dlkm/lib/modules/mt6368-accdet.ko
-vendor_dlkm/lib/modules/mt6895-mt6368.ko
-vendor_dlkm/lib/modules/mtk-afe-external.ko
-vendor_dlkm/lib/modules/mtk-btcvsd.ko
-vendor_dlkm/lib/modules/mtk-cam-isp.ko
-vendor_dlkm/lib/modules/mtk-cam-plat-mt6895.ko
-vendor_dlkm/lib/modules/mtk-cam-plat-util.ko
-vendor_dlkm/lib/modules/mtk-composite.ko
-vendor_dlkm/lib/modules/mtk-cqdma.ko
-vendor_dlkm/lib/modules/mtk-dvfsrc-start.ko
-vendor_dlkm/lib/modules/mtk-ipesys-me.ko
-vendor_dlkm/lib/modules/mtk-lpm-dbg-common-v1.ko
-vendor_dlkm/lib/modules/mtk-lpm-dbg-mt6895.ko
-vendor_dlkm/lib/modules/mtk-lpm-plat-v1.ko
-vendor_dlkm/lib/modules/mtk-lpm.ko
-vendor_dlkm/lib/modules/mtk-mbox.ko
-vendor_dlkm/lib/modules/mtk-pm-domain-disable-unused.ko
-vendor_dlkm/lib/modules/mtk-pwm.ko
-vendor_dlkm/lib/modules/mtk-scp-ultra.ko
-vendor_dlkm/lib/modules/mtk-scp-vow.ko
-vendor_dlkm/lib/modules/mtk-soc-offload-common.ko
-vendor_dlkm/lib/modules/mtk-sp-spk-amp.ko
-vendor_dlkm/lib/modules/mtk-ssc-dbg-v2.ko
-vendor_dlkm/lib/modules/mtk-ssc.ko
-vendor_dlkm/lib/modules/mtk-swpm-dbg-common-v1.ko
-vendor_dlkm/lib/modules/mtk-swpm-dbg-v6895.ko
-vendor_dlkm/lib/modules/mtk-swpm.ko
-vendor_dlkm/lib/modules/mtk-vcodec-common.ko
-vendor_dlkm/lib/modules/mtk-vcodec-dec-v2.ko
-vendor_dlkm/lib/modules/mtk-vcodec-enc-v2.ko
-vendor_dlkm/lib/modules/mtk-vmm-dbg.ko
-vendor_dlkm/lib/modules/mtk-vmm-regulator.ko
-vendor_dlkm/lib/modules/mtk-vow.ko
-vendor_dlkm/lib/modules/mtk_aie.ko
-vendor_dlkm/lib/modules/mtk_battery_oc_throttling.ko
-vendor_dlkm/lib/modules/mtk_bp_thl.ko
-vendor_dlkm/lib/modules/mtk_ccd_remoteproc.ko
-vendor_dlkm/lib/modules/mtk_ccu.ko
-vendor_dlkm/lib/modules/mtk_cm_ipi.ko
-vendor_dlkm/lib/modules/mtk_cm_mgr.ko
-vendor_dlkm/lib/modules/mtk_cm_mgr_mt6895.ko
-vendor_dlkm/lib/modules/mtk_core_ctl.ko
-vendor_dlkm/lib/modules/mtk_cpu_power_throttling.ko
-vendor_dlkm/lib/modules/mtk_dynamic_loading_throttling.ko
-vendor_dlkm/lib/modules/mtk_fpsgo.ko
-vendor_dlkm/lib/modules/mtk_gpu_hal.ko
-vendor_dlkm/lib/modules/mtk_gpu_qos.ko
-vendor_dlkm/lib/modules/mtk_gpufreq_mt6895.ko
-vendor_dlkm/lib/modules/mtk_gpufreq_wrapper.ko
-vendor_dlkm/lib/modules/mtk_hcp.ko
-vendor_dlkm/lib/modules/mtk_heap_debug.ko
-vendor_dlkm/lib/modules/mtk_imgsys_v4l2.ko
-vendor_dlkm/lib/modules/mtk_irtx_pwm.ko
-vendor_dlkm/lib/modules/mtk_jpeg.ko
-vendor_dlkm/lib/modules/mtk_low_battery_throttling.ko
-vendor_dlkm/lib/modules/mtk_md_power_throttling.ko
-vendor_dlkm/lib/modules/mtk_mdpm.ko
-vendor_dlkm/lib/modules/mtk_pbm.ko
-vendor_dlkm/lib/modules/mtk_perf_common.ko
-vendor_dlkm/lib/modules/mtk_perf_ioctl.ko
-vendor_dlkm/lib/modules/mtk_qos.ko
-vendor_dlkm/lib/modules/mtk_rpmsg_mbox.ko
-vendor_dlkm/lib/modules/mtk_sec_heap.ko
-vendor_dlkm/lib/modules/mtk_tinysys_ipi.ko
-vendor_dlkm/lib/modules/mtk_u_ether.ko
-vendor_dlkm/lib/modules/mtk_usb_f_rndis.ko
-vendor_dlkm/lib/modules/nvmem-mt635x-efuse.ko
-vendor_dlkm/lib/modules/nvt36672c.ko
-vendor_dlkm/lib/modules/nxp_i2c.ko
-vendor_dlkm/lib/modules/p73.ko
-vendor_dlkm/lib/modules/pda_drv_mt6895.ko
-vendor_dlkm/lib/modules/pmic_temp.ko
-vendor_dlkm/lib/modules/pmsr.ko
-vendor_dlkm/lib/modules/reboot-mode.ko
-vendor_dlkm/lib/modules/richtek_spm_cls.ko
-vendor_dlkm/lib/modules/rpmb-mtk.ko
-vendor_dlkm/lib/modules/rpmb.ko
-vendor_dlkm/lib/modules/rps_perf.ko
-vendor_dlkm/lib/modules/scheduler.ko
-vendor_dlkm/lib/modules/scp.ko
-vendor_dlkm/lib/modules/sec.ko
-vendor_dlkm/lib/modules/sensorhub.ko
-vendor_dlkm/lib/modules/sla.ko
-vendor_dlkm/lib/modules/snd-soc-audiodsp-common.ko
-vendor_dlkm/lib/modules/snd-soc-mt6368.ko
-vendor_dlkm/lib/modules/snd-soc-mt6895-afe.ko
-vendor_dlkm/lib/modules/snd-soc-mtk-common.ko
-vendor_dlkm/lib/modules/snd-soc-mtk-scp-ultra.ko
-vendor_dlkm/lib/modules/snd-soc-rt5512.ko
-vendor_dlkm/lib/modules/snd-soc-tfa98xx.ko
-vendor_dlkm/lib/modules/soc_temp_lvts.ko
-vendor_dlkm/lib/modules/spmi-mtk-mpu.ko
-vendor_dlkm/lib/modules/spmtwam.ko
-vendor_dlkm/lib/modules/sspm_v3.ko
-vendor_dlkm/lib/modules/syscon-reboot-mode.ko
-vendor_dlkm/lib/modules/task_turbo.ko
-vendor_dlkm/lib/modules/thermal-generic-adc.ko
-vendor_dlkm/lib/modules/thermal_interface.ko
-vendor_dlkm/lib/modules/thermal_trace.ko
-vendor_dlkm/lib/modules/trace_mmstat.ko
-vendor_dlkm/lib/modules/trusted_mem.ko
-vendor_dlkm/lib/modules/uload_ind.ko
-vendor_dlkm/lib/modules/v4l2-fwnode.ko
-vendor_dlkm/lib/modules/vcp.ko
-vendor_dlkm/lib/modules/vdec-fmt.ko
-vendor_dlkm/lib/modules/widevine_driver.ko
-vendor_dlkm/lib/modules/wlan_drv_gen4m_6895.ko
-vendor_dlkm/lib/modules/wmt_chrdev_wifi_connac2.ko
-vendor_dlkm/lib/modules/xiaomi_touch.ko
-vendor_dlkm/lib/modules/zram.ko
-vendor_dlkm/lib/modules/zsmalloc.ko

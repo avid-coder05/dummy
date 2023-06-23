@@ -1,7 +1,3 @@
-
-# Inherit proprietary files
-$(call inherit-product, vendor/xiaomi/xaga/xaga-vendor.mk)
-
 # Install gsi keys into ramdisk, to boot a GSI with verified boot
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
@@ -83,68 +79,7 @@ PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/configs/audio/usb_audio_accessory_only_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_accessory_only_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
-PRODUCT_PACKAGES += \
-    android.hardware.audio.common@6.0-util \
-    android.hardware.audio.common@7.0-util \
-    android.hardware.audio.common@7.0-enums \
-    android.hardware.audio.common-util \
-    android.hardware.audio.common-V1-ndk \
-    android.hardware.audio.effect@6.0-util \
-    android.hardware.audio.effect@6.0-impl \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio.effects@7.0-util \
-    android.hardware.audio@6.0-impl \
-    android.hardware.audio@7.0-impl \
-    android.hardware.soundtrigger@2.3-impl \
-    android.hardware.audio.service.mediatek \
-    audio.primary.mediatek \
-    audio.r_submix.mediatek \
-    audio.usb.default \
-    audio_policy.stub \
-    libaudiopreprocessing \
-    libaaudio \
-    libaudioclient_aidl_conversion \
-    libaudiohal@7.1 \
-    libaudiohal@7.0 \
-    libaudiohal@6.0 \
-    libfvaudio \
-    libbundlewrapper \
-    libdownmix \
-    libdynproc \
-    libeffectproxy \
-    libldnhncr \
-    libreverbwrapper \
-    libvisualizer \
-    libaudiofoundation.vendor \
-    libtinycompress
-
-PRODUCT_PACKAGES += \
-    android.hardware.soundtrigger@2.0 \
-    android.hardware.soundtrigger@2.1 \
-    android.hardware.soundtrigger@2.2
-
 # Bluetooth
-PRODUCT_PACKAGES += \
-	android.hardware.bluetooth@1.0 \
-	android.hardware.bluetooth@1.1 \
-	android.hardware.blueooth@1.1-impl-mediatek \
-    android.hardware.bluetooth@1.1.vendor
-    
-PRODUCT_PACKAGES += \
-	audio.bluetooth.default \
-	libbluetooth_audio_session_mediatek \
-	libbluetoothem_mtk \
-	libbluetooth_mtk \
-	libbluetooth_mtk_pure \
-	libbluetooth_relayer
-
-PRODUCT_PACKAGES += \
-	android.hardware.bluetooth.audio@2.0 \
-    android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.bluetooth.audio@2.0 \
-    android.hardware.bluetooth.audio@2.1-impl \
-    android.hardware.bluetooth.audio-V2-ndk
-
 PRODUCT_PACKAGES += \
 	$(LOCAL_PATH)/configs/audio/bluetooth_a2dp_offload_ums_offload_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_a2dp_offload_ums_offload_audio_policy_configuration.xml \
     $(LOCAL_PATH)/configs/audio/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
@@ -157,80 +92,24 @@ TARGET_SCREEN_WIDTH := 1080
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    bootctrl.default \
-    android.hardware.boot@1.2 \
-    android.hardware.boot@1.2-service \
-    android.hardware.boot@1.0-impl-1.2-mtkimpl	
+	android.hardware.boot@1.2 \
+	android.hardware.boot@1.2-impl \
+	android.hardware.boot@1.2-service \
+    bootctrl.default
 
 # Camera
 PRODUCT_PACKAGES += \
-	android.hardware.camera.common@1.0 \
-	anrdoid.hardware.camera.common-V1-ndk \
 	android.hardware.camera.device@3.7 \
-	android.hardware.camera.device-V1-ndk \
-	android.hardware.camera.metadata@3.6 \
-	android.hardware.camera.metadata-V1-ndk \
-	android.hardware.camera.provider@2.6-impl-mediatek \
 	android.hardware.camera.provider@2.7 \
-	android.hardware.camera.provider-V1-ndk
-
-PRODUCT_PACKAGES += \
-	libcamera.custom.af_assist_buf_mgr \
-	libcamera.custom.af_assist_buf_mgr_open \
-	libcamera.custom.af_assist_mgr \
-	libcamera.custom.af_assist_pdp \
-	libcamera.customae \
-	libcamera.customaf \
-	libcamera.customawb \
-	libcamera.customflk \
-	libcameracustom.camera.3a \
-	libcameracustom.camera.isp \
-	libcameracustom.camera.sensors \
-	libopencl-camera \
-	libcam.halsensor.hwintegration \
-	libcam.halsensor \
-	libcam.hal3a.v3.sensor.v4l2 \
-	libcameracustom.imgsensor \
-	libcamerasensorinfoxiaomi \
-	libmtkcam_sensorcontrol
-
-# CAS
-PRODUCT_PACKAGES += \
-	android.hardware.cas@1.2-service-lazy
 
 # Display
 PRODUCT_PACKAGES += \
-	android.hardware.graphics.allocator@4.0 \
-	android.hardware.graphics.allocator@4.0-impl-mediatek \
-	android.hardware.graphics.allocator-service-mediatek.mt6895 \
-	android.hardware.graphics.allocator-V1-ndk \
-	android.hardware.graphics.bufferqueue@2.0 \
-	android.hardware.graphics.commmon@1.2 \
-	android.hardware.graphics.common-V3-ndk \
-	android.hardware.graphics.composer3-V1-ndk \
-	android.hardware.graphics.composer@2.4 \
-	android.hardware.graphics.composer@2.3-service \
-	android.hardware.graphics.composer@2.2-resources \
-	android.hardware.graphics.mapper@4.0 \
-	android.hardware.graphics.mapper@4.0-impl-mediatek \
-	android.hardware.memtrack-service.mediatek \
-	android.hardware.memtrack@1.0 \
-	android.hardware.memtrack-V1-ndk
-
-PRODUCT_PACKAGES += \
 	libjnigraphics \
-	libgralloc_extra \
-	libgralloc_extra_sys \
-	libgralloc_metadata \
-	libgralloctypes_mtk \
 	libgraphicsenv \
-	libmemtrack
-
-PRODUCT_PACKAGES += \
-	libGLES_mali \
-	libGLES_meow \
 	libGLESv1_CM \
-	libGLESv3
+	libGLESv2 \
+	libGLESv3 \
+	libmemtrack \
 
 # Dolby
 PRODUCT_COPY_FILES += \
@@ -240,23 +119,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/config-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/config-com.dolby.daxservice.xml \
     $(LOCAL_PATH)/configs/sysconfig/hiddenapi-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/hiddenapi-com.dolby.daxservice.xml
 
-PRODUCT_PACKAGES += \
-	dolbycodec2
-
 # DRM
 PRODUCT_PACKAGES += \
-	android.hardware.drm@1.4-service.clearkey \
-	android.hardware.drm@1.4 \
-	android.hardware,drm-V1-ndk
-
-PRODUCT_PACKAGES += \
-	libdrm \
-	libdrmclearkeyplugin \
 	libdrmframework \
 	libdrmframeworkcommon \
 	libdrmframework_jni \
-	libdrmmtkutil \
-	libdrmmtkwhitelist
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -265,27 +132,21 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml \
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-	libgoodixhwfingerprint
-
 # Gatekeeper
 PRODUCT_PACKAGES += \
 	android.hardware.gatekeeper@1.0 \
-	android.hardware.gatekeeper@1.0-impl \
-	android.hardware.gatekeeper@1.0-service
-
-# GPS
-PRODUCT_PACKAGES += \
-	android.hardware.gnss.measurement_corrections@1.1 \
-	android.hardware.gnss.visibility_control@1.0 \
-	android.hardware.gnss@2.1 \
-	android.hardware.gnss@2.1-impl-mediatek \
-	android.hardware.gnss-impl-mediatek \
-	android.hardware.gnss-service.mediatek
+	android.hardware.gatekeeper@1.0-impl
+	android.hardware.gatekeeper@1.0-service \
 
 PRODUCT_PACKAGES += \
 	libservices.core-gnss
+
+# Graphics
+PRODUCT_PACKAGES += \
+	android.hardware.graphics.bufferqueue@2.0 \
+	gralloc.default \
+	libstagefright_bufferpool@2.0.1 \
+	libstagefright_bufferqueue_helper
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -299,28 +160,13 @@ PRODUCT_PACKAGES += \
 	android.hidl.token@1.0-utils
 
 PRODUCT_PACKAGES += \
-	libhwbinder \
-	libhwui  \
-	libhidlbase \
-	libhidlmemory \
-	libhidltransport
-
+	libhidltransport \
+	libhwbinder
 
 # IDC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     $(LOCAL_PATH)/configs/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc \
-
-# IMS
-PRODUCT_BOOT_JARS += \
-	mediatek-common \
-	mediatek-framework \
-	mediatek-ims-base \
-	mediatek-ims-common \
-	mediatek-services \
-	mediatek-telecom-common \
-	mediatek-telephony-base \
-	mediatek-telephony-common
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -336,23 +182,22 @@ PRODUCT_PACKAGES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
+	android.hardware.hardware_keystore.xml \
+	android.hardware.keystore.app_attest_key \
+	android.hardware.keymaster@3.0 \
 	android.hardware.keymaster@4.1 \
 	lib_android_keymaster_keymint_utils \
 	libkeymaster4_1support \
 	libkeymaster4support \
 	libkeymaster_messages \
 	libkeymaster_portable \
+	libkeystore-wifi-hidl \
 	libpuresoftkeymasterdevice
 
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
-    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl \
-
-# Light
-PRODUCT_PACKAGES += \
-	android.hardware.light@2.0 \
-	android.hardware.lights-service.mediatek
+    $(LOCAL_PATH)/configs/keylayout/uinput-goodix.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-goodix.kl
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -365,34 +210,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs_system_default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_system_default.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
 
-PRODUCT_PACKAGES += \
-	android.hardware.media.c2@1.2 \
-	android.hardware.media.c2@1.2-mediatek \
-	android.hardware.media.c2@1.2-mediatek-64b
-
-PRODUCT_PACKAGES += \
-	libcodec2 \
-	libcodec_client \
-	libcodec2_hidl@1.2 \
-	libcodec2_hidl_client@1.2 \
-	libcodec2_hidl_plugin \
-	libcodec2_mtk_c2store \
-	libcodec2_mtk_vdec \
-	libcodec2_mtk_venc \
-	libcodec2_vndk \
-	libavservices_minijail \
-	libavservices_minijail_vendor \
-	libminijail \
-	libsfplugin_ccodec \
-	libsfplugin_ccodec_utils \
-	libstagefright_codecbase
-
 # NFC
 PRODUCT_PACKAGES += \
-	android.hardware.nfc@1.2 \
-	com.android.nfc_extras \
-	com.mxpmnfc.nq \
-	nfc_nci.nqx.default.hw.v1 \
 	libchrome \
 	NfcNci-v1 \
 	SecureElement \
@@ -410,10 +229,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libmedia_omx \
 	libmedia_omx_client \
-	libMtkOmxCore \
 	libstagefright_omx \
-	libstagefright_omx_utils \
-	libstagefright_softomx
+	libstagefright_omx_utils
+
+# Perf
+PRODUCT_PACKAGES += \
+	iperf3 \
+	libmtkperf_client_vendor \
+	libmtkperfctl_vendor
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -464,49 +287,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2022-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
 
-# Power
-PRODUCT_PACKAGES += \
-	android.hardware.power.stats@1.0 \
-	android.hardware.power.stats-V1-ndk \
-	android.hardware.power@1.3 \
-	android.hardware.power-service-mediatek
-
-PRODUCT_PACKAGES += \
-	libpower \
-	libpowerhal \
-	libpowerhalwrap \
-	libpowerhalwrap_jni \
-	libpowerhalwrap_vendor \
-	libpowerkeeper_jni \
-	libpowermanager \
-	power.default
-
 # Priv-app Permissions
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
 
-# Protobuf
-PRODUCT_PACKAGES += \
-	libprotobuf-cpp-full-3.9.1 \
-	libprotobuf-cpp-lite-3.9.1
-
 # Public Libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt \
-
-# Radio
-PRODUCT_PACKAGES += \
-	android.hardware.broadcastradio@1.1 \
-	android.hardware.radio.config@1.3 \
-	android.hardware.radio@1.6 \
-	android.hardware.radio-V1-ndk
-
-PRODUCT_PACKAGES += \
-	libradio_metadata
-
-# Renderscript
-PRODUCT_PACKAGES += \
-	android.renderscript@1.0-impl
 
 # Rootdir
 PRODUCT_PACKAGES += \
@@ -540,7 +327,7 @@ PRODUCT_PACKAGES += \
     ueventd.rc
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/etc/init.mt6895.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.6895.rc
+	$(LOCAL_PATH)/rootdir/etc/init.mt6895.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mt6895.rc
 
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
@@ -554,31 +341,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy \
     $(LOCAL_PATH)/configs/seccomp/mediaswcodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaswcodec.policy
 
-# Secure element
-PRODUCT_PACKAGES += \
-	android.hardware.secure_element@1.2
-
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
-PRODUCT_PACKAGES += \
-	android.hardware.sensors@2.0-ScopedWakeLock \
-	android.hardware.sensors@2.0-service.multihal-mediatek \
-	android.hardware.sensors@2.1 \
-	android.hardware.sensor@2.X-subhal-mediatek
-
-# Sound trigger
-PRODUCT_PACKAGES += \
-	android.hardware.soundtrigger@2.3 \
-	android.hardware.soundtrigger@2.3-impl
-
-# Tethering
-PRODUCT_PACKAGES += \
-	libtextclassifier_hash
-
 # Thermal
 PRODUCT_PACKAGES += \
+	android.hardware.thermal@1.0 \
+	android.hardware.thermal@1.0-impl \
 	android.hardware.thermal@2.0 \
 	android.hardware.thermal@2.0-impl
 
