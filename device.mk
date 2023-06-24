@@ -119,11 +119,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sysconfig/config-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/config-com.dolby.daxservice.xml \
     $(LOCAL_PATH)/configs/sysconfig/hiddenapi-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/hiddenapi-com.dolby.daxservice.xml
 
-# DRM
-PRODUCT_PACKAGES += \
-	libdrmframework \
-	libdrmframeworkcommon \
-	libdrmframework_jni \
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/priv-app/daxService/daxService.apk:$(TARGET_OUT_SYSTEM_EXT)/priv-app/daxService/daxService.apk \
+	$(LOCAL_PATH)/priv-app/DaxUI/DaxUI.apk:$(TARGET_OUT_SYSTEM_EXT)/priv-app/DaxUI/DaxUI.apk
 
 # Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -138,30 +136,12 @@ PRODUCT_PACKAGES += \
 	android.hardware.gatekeeper@1.0-impl
 	android.hardware.gatekeeper@1.0-service \
 
-PRODUCT_PACKAGES += \
-	libservices.core-gnss
-
 # Graphics
 PRODUCT_PACKAGES += \
 	android.hardware.graphics.bufferqueue@2.0 \
 	gralloc.default \
 	libstagefright_bufferpool@2.0.1 \
 	libstagefright_bufferqueue_helper
-
-# HIDL
-PRODUCT_PACKAGES += \
-	android.hidl.allocator@1.0 \
-	android.hidl.allocator@1.0-service \
-	android.hidl.memory.block@1.0 \
-	android.hidl.memory.token@1.0 \
-	android.hidl.memory@1.0 \
-	android.hidl.memory@1.0-impl \
-	android.hidl.token@1.0 \
-	android.hidl.token@1.0-utils
-
-PRODUCT_PACKAGES += \
-	libhidltransport \
-	libhwbinder
 
 # IDC
 PRODUCT_COPY_FILES += \
@@ -173,26 +153,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.emmc \
 	$(LOCAL_PATH)/rootdir/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
 	$(LOCAL_PATH)/rootdir/etc/fstab.mt6895:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.mt6895
-
-# IR
-PRODUCT_PACKAGES += \
-	android.hardware.ir@1.0 \
-	android.hardware.ir@1.0-impl \
-	android.hardware.ir@1.0-service
-
-# Keymaster
-PRODUCT_PACKAGES += \
-	android.hardware.hardware_keystore.xml \
-	android.hardware.keystore.app_attest_key \
-	android.hardware.keymaster@3.0 \
-	android.hardware.keymaster@4.1 \
-	lib_android_keymaster_keymint_utils \
-	libkeymaster4_1support \
-	libkeymaster4support \
-	libkeymaster_messages \
-	libkeymaster_portable \
-	libkeystore-wifi-hidl \
-	libpuresoftkeymasterdevice
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -220,17 +180,6 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
-
-# OMX
-PRODUCT_PACKAGES += \
-	android.hardware.media.omx@1.0 \
-	android.hardware.media.omx@1.0-service
-
-PRODUCT_PACKAGES += \
-	libmedia_omx \
-	libmedia_omx_client \
-	libstagefright_omx \
-	libstagefright_omx_utils
 
 # Perf
 PRODUCT_PACKAGES += \
@@ -372,6 +321,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/passpointProfile.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/passpointProfile.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+
+PRODUCT_PACKAGES += \
+	libstagefright_wfd
 
 # Test Config
 PRODUCT_COPY_FILES += \
