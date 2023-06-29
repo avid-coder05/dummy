@@ -100,6 +100,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 
 BOARD_VENDOR_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE := androidboot.init_fatal_reboot_target=recovery
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 
 BOARD_VENDOR_BASE := 0x3fff8000
 BOARD_PAGE_SIZE := 4096
@@ -248,10 +249,10 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vintf/framework_com
 -include vendor/xiaomi/xaga/BoardConfigVendor.mk
 
 # Sepolicy
-include device/mediatek/sepolicy_vndr/SEPolicy.mk
-SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+#include device/mediatek/sepolicy_vndr/SEPolicy.mk
+#SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+#SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+#BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Vintf
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest.xml
