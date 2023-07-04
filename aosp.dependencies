@@ -1,0 +1,8 @@
+[
+ {
+    "repository" : "Rohail33/Realking_xiaomi_xaga",
+    "target_path" : "kernel/xiaomi/mt6895",
+    "remote" : "github",
+    "branch" : "xaga-s-oss"
+ }
+]
